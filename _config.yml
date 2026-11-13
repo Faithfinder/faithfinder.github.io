@@ -1,0 +1,7 @@
+# User site for projects.dkartashev.dev (repo Faithfinder/faithfinder.github.io).
+# Because this user site has a custom domain, GitHub serves every project site of
+# this account under it at /<repo>/ and redirects the old faithfinder.github.io URLs.
+# The bare dkartashev.dev is deliberately not used here: it's reserved for a
+# personal site / ATProto (the Bluesky handle lives in its _atproto TXT record).
+title: Dmitrii Kartashev, projects
+description: Atlassian apps and other small tools by Dmitrii Kartashev.
