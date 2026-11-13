@@ -1,5 +1,4 @@
-/* Shared by projects.dkartashev.dev and the project sites served under it
-   (/repo-starter/, /business-days/), which link this file as /assets/site.css.
+/* Every page on projects.dkartashev.dev: index.html and the app pages (_layouts/default.html).
    Light: kinari paper and sumi ink. Dark: near-black. The panel stays indigo (ai) in both. */
 :root{
   --bg:#F4F0E6; --card:#FBF8F2; --ink:#1B1A18; --body:#3F3B35; --muted:#6B6257; --line:#D6CCBA;

@@ -3,5 +3,37 @@
 # this account under it at /<repo>/ and redirects the old faithfinder.github.io URLs.
 # The bare dkartashev.dev is deliberately not used here: it's reserved for a
 # personal site / ATProto (the Bluesky handle lives in its _atproto TXT record).
+#
+# index.html is the home page, written as plain HTML. The Atlassian apps' public pages
+# (docs, privacy policy, terms and support, which their Marketplace listings link to)
+# are Markdown in repo-starter/ and business-days/, rendered with _layouts/default.html.
+# Everything shares assets/site.css.
 title: Dmitrii Kartashev, projects
 description: Atlassian apps by Dmitrii Kartashev.
+
+# Edit these lines; every app page picks them up.
+vendor: Dmitrii Kartashev
+location: Ottawa, Canada
+support_email: support@dkartashev.dev
+
+# Per-app settings. Pages in each folder read them as page.<name>.
+defaults:
+  - scope:
+      path: repo-starter
+    values:
+      layout: default
+      slug: repo-starter
+      app: "Repo Starter: Templates for Bitbucket"
+      app_description: Create Bitbucket repositories from templates, with files, branches and settings copied in one go.
+      updated: November 13, 2026
+      # Developer console distribution link (production). Regenerating it in the console invalidates the old one.
+      install_url: "https://developer.atlassian.com/console/install/9b17c28d-7822-4356-93d7-28b19b11eacd?signature=AYABeJt0QDGhbIpiWrOgQusJxFcAAAADAAdhd3Mta21zAEthcm46YXdzOmttczp1cy13ZXN0LTI6NzA5NTg3ODM1MjQzOmtleS83MDVlZDY3MC1mNTdjLTQxYjUtOWY5Yi1lM2YyZGNjMTQ2ZTcAuAECAQB4CxqLTo9l4lqXuFjNim1xJM%2Bp%2F3TVP9xHS2BrU5DRRucB1hmEZ0Jok8JZ8YAe3JbVGAAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDGpjjRcfYpKjyL2JogIBEIA7VoPCkG%2BT%2FUuM9eLzJyZyhH3M4vbT5jpDkKTHDRbawWb1rrW5E01AdpUDRq02%2FX5ZLwJ9%2BjwkuTLEfRkAB2F3cy1rbXMAS2Fybjphd3M6a21zOmV1LXdlc3QtMTo3MDk1ODc4MzUyNDM6a2V5LzQ2MzBjZTZiLTAwYzMtNGRlMi04NzdiLTYyN2UyMDYwZTVjYwC4AQICAHi9bVMAkme4qVQX1fQHo6ePw3H40A7cGfz7yrmSfBWMXgGMM%2F7e8DPBcqDiD9pxLIFOAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMGLilsIdy2t7gJDEKAgEQgDvlE6MUwW8BuFOt8QskyQT6PGjHsHFfQWcfHZIhNqIoUVzcx3gg9jZBQ6le41Fgn9rVpi84hGWV%2B3h%2FmAAHYXdzLWttcwBLYXJuOmF3czprbXM6dXMtZWFzdC0xOjcwOTU4NzgzNTI0MzprZXkvNmMxMjBiYTAtNGNkNS00OTg1LWI4MmUtNDBhMDQ5NTJjYzU3ALgBAgIAeDYASx0XCjkny4iLV6vz%2BKtEGSGT6kdt0QRpkn6D%2FlVEASFZctal1ECDPCdOLNWfBKAAAAB%2BMHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxqZmZtJFHLalMaBRQCARCAOykvsH1tmhCz6cC7Cwx40H9BdDS3G8QP6QHHG5Bb3HEgYvmszTqTIJgE4jdM5dryxbcWmlscmu1NYfd5AgAAAAAMAAAQAAAAAAAAAAAAAAAAAMn2QEHDmAzXXC5A7cfqA7v%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAADLEWLnoNRuxziK%2Bi71aZhlaf5mEK8stZb7ry0o3C%2Fgzk4UqDAxYv6ftrGu%2FQrR%2Fsh8m9n8pmUJYcfmyscvlQSfiiFM%3D&product=bitbucket"
+  - scope:
+      path: business-days
+    values:
+      layout: default
+      slug: business-days
+      app: Business Days & Holidays for Jira
+      app_description: Due dates that skip weekends, public holidays and your company's days off.
+      updated: November 13, 2026
+      marketplace_url: https://marketplace.atlassian.com/apps/566776470/business-days-holidays-for-jira
