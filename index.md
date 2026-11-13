@@ -4,8 +4,6 @@ title: Projects
 
 # Projects by Dmitrii Kartashev
 
-Small tools I build and run on my own, from Ottawa, Canada.
-
 ## Atlassian apps
 
 - **[Repo Starter: Templates for Bitbucket](/repo-starter/)**: create Bitbucket Cloud repositories from templates, with files, branches and settings copied in one go.
