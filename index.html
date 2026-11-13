@@ -14,105 +14,12 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F0E6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111316" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='4' fill='%23C9401F'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='ui-monospace,Menlo,Consolas,monospace' font-size='13' font-weight='700' fill='%23F4F0E6'%3EDK%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<style>
-:root{
-  --bg:#F4F0E6; --card:#FBF8F2; --ink:#1B1A18; --body:#3F3B35; --muted:#6B6257; --line:#D6CCBA;
-  --accent:#B3391C; --seal:#C9401F; --seal-ink:#F4F0E6;
-  /* The indigo (ai) panel and its painting: cattails (gama) and bearded wheat (mugi) before a vermilion sun. */
-  --panel:#1F3A68; --disc:#E0482A; --reed:#F2ECDF; --back-o:.35; --front-o:.92;
-  --kaba:#16130F; --wheat:#E8B65C; --note:rgba(242,236,223,.72);
-  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
-  --mono:"M PLUS 1 Code",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  color-scheme:light;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#111316; --card:#171A1E; --ink:#F0EBE0; --body:#C9C2B4; --muted:#8E877A; --line:#2B2F36;
-    --accent:#F07A55; --seal:#C9401F; --seal-ink:#111316;
-    --panel:#172B4D; --disc:#C9401F; --kaba:#0B0A08; --note:rgba(242,236,223,.6);
-    color-scheme:dark;
-  }
-}
-
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--body);font:400 16.5px/1.65 var(--sans)}
-a{color:var(--accent);text-underline-offset:.22em;text-decoration-thickness:1px}
-a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-.layout{display:grid;grid-template-columns:1fr min(40vw,640px);min-height:100vh;min-height:100svh}
-.content{
-  max-width:820px;
-  padding:clamp(48px,11vh,110px) clamp(16px,6vw,96px) 56px max(16px,8vw,env(safe-area-inset-left,0px));
-}
-
-.top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-.seal{display:inline-grid;place-items:center;width:34px;height:34px;background:var(--seal);color:var(--seal-ink);font:700 14px/1 var(--mono);border-radius:3px}
-.crumb{font:500 13.5px/1 var(--mono);color:var(--muted)}
-.crumb b{font-weight:500;color:var(--ink)}
-h1{margin:0;font:700 clamp(36px,5.2vw,60px)/1.06 var(--sans);color:var(--ink);letter-spacing:-.02em}
-
-main{margin-top:clamp(40px,7vh,64px)}
-h2{margin:0 0 14px;font:500 13px/1.4 var(--mono);color:var(--muted)}
-h2 span{color:var(--accent)}
-.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.card{
-  position:relative;padding:16px 22px 22px;background:var(--card);border:1px solid var(--line);border-radius:4px;
-  transition:transform .15s,box-shadow .15s,border-color .15s;
-}
-.card:hover{border-color:var(--ink);transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--accent)}
-.card:focus-within{outline:2px solid var(--accent);outline-offset:2px}
-.meta{display:flex;justify-content:space-between;gap:12px;margin:0 0 8px;font:500 12.5px/1.4 var(--mono);color:var(--muted)}
-.meta .n{color:var(--accent);margin-right:10px}
-.meta .path{transition:color .15s}
-.card:hover .path{color:var(--accent)}
-h3{margin:0 0 4px;font:700 22px/1.3 var(--sans);color:var(--ink);letter-spacing:-.01em}
-h3 a{color:inherit;text-decoration:none}
-h3 a:focus-visible{outline:none}
-h3 a::after{content:"";position:absolute;inset:0}
-.desc{margin:0;max-width:34em}
-
-footer{margin-top:36px;color:var(--muted);font-size:15px}
-footer p{margin:0 0 4px}
-footer a{font-family:var(--mono);font-size:14px}
-
-.panel{position:relative;min-height:100%;background:var(--panel);overflow:hidden}
-.scene{position:absolute;left:50%;bottom:0;height:min(92vh,860px);width:auto;transform:translateX(-58%)}
-.scene .moon{fill:var(--disc)}
-.scene .back{opacity:var(--back-o)}
-.scene .front{opacity:var(--front-o)}
-.scene .leaf{fill:var(--reed)}
-.scene .stem{fill:none;stroke:var(--reed);stroke-width:2.6;stroke-linecap:round}
-.scene .wheat-stem,.scene .rachis{fill:none;stroke:var(--wheat);stroke-width:2.2;stroke-linecap:round}
-.scene .spike{fill:var(--kaba)}
-.scene .tip{stroke:var(--kaba);stroke-width:2;stroke-linecap:round}
-.scene .grain{fill:var(--wheat)}
-.scene .awn{stroke:var(--wheat);stroke-width:1;stroke-linecap:round}
-.scene .note text{font:500 13px var(--mono);fill:var(--note)}
-.scene .note .sub{font-size:11.5px;font-weight:400}
-.scene .note path{stroke:var(--note);stroke-width:1;fill:none}
-.scene .note circle{fill:var(--note)}
-
-@media (max-width:860px){
-  .layout{grid-template-columns:1fr}
-  .panel{order:-1;min-height:0;height:clamp(220px,34vw,300px)}
-  .scene{top:-8px;bottom:auto;left:auto;right:6%;width:clamp(260px,44vw,380px);height:auto;transform:none}
-  .scene .note{display:none}
-}
-@media (max-width:520px){
-  .meta .path{display:none}
-  h3{font-size:20px}
-}
-@media (prefers-reduced-motion: reduce){
-  .card,.meta .path{transition:none}
-  .card:hover{transform:none}
-}
-</style>
+<!-- Shared with the project sites under this domain; see the note at the top of the file. -->
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 <div class="layout">
@@ -121,8 +28,8 @@ footer a{font-family:var(--mono);font-size:14px}
       <div class="top"><span class="seal" aria-hidden="true">DK</span><span class="crumb">dkartashev.dev/<b>projects</b></span></div>
       <h1>Projects by Dmitrii Kartashev</h1>
     </header>
-    <main>
-      <h2><span>//</span> Atlassian apps</h2>
+    <main class="projects">
+      <h2 class="label"><span>//</span> Atlassian apps</h2>
       <ul class="list">
         <li class="card">
           <p class="meta"><span><span class="n">01</span>Bitbucket Cloud</span><span class="path">/repo-starter →</span></p>
@@ -136,13 +43,18 @@ footer a{font-family:var(--mono);font-size:14px}
         </li>
       </ul>
     </main>
-    <footer>
+    <footer class="contact">
       <p>Questions about the apps: <a href="mailto:support@dkartashev.dev">support@dkartashev.dev</a></p>
       <p>Anything else: <a href="mailto:dmitrii@dkartashev.dev">dmitrii@dkartashev.dev</a></p>
     </footer>
   </div>
   <div class="panel" aria-hidden="true">
-    <svg class="scene" viewBox="0 0 560 900" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false"><circle class="moon" cx="215" cy="300" r="140"/><g transform="translate(-105 0)"><g class="back"><path class="leaf" d="M296.5 900C291.2 614 245.2 369.6 180 450C246.8 369.6 296.8 614 303.5 900Z"/><path class="leaf" d="M426.8 900C431.9 548 469.7 247.2 520 300C471.3 247.2 437.1 548 433.3 900Z"/><path class="leaf" d="M497 900C499.6 669 517.3 471.6 540 490C518.7 471.6 504.4 669 503 900Z"/><path class="stem" d="M470 900Q473.4 620 498 340"/><g transform="translate(498 340) rotate(5)"><rect class="spike" x="-6" y="-78" width="12.1" height="78" rx="6"/><path class="tip" d="M0 -81.1V-118.6"/></g><path class="stem wheat-stem" d="M250 900Q246.6 618 216 430"/><g transform="translate(216 430) rotate(-17.2)"><path class="rachis" d="M0 0V-86.4"/><g transform="translate(-2.3 -4) rotate(-16.4) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.7"/></g><g transform="translate(2.3 -11.2) rotate(18.9) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.8"/></g><g transform="translate(-2.3 -18.4) rotate(-17) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-49.7"/></g><g transform="translate(2.3 -25.6) rotate(19.3) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-48.5"/></g><g transform="translate(-2.3 -32.8) rotate(-16.5) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-57.8"/></g><g transform="translate(2.3 -40) rotate(18.9) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-59.3"/></g><g transform="translate(-2.3 -47.2) rotate(-21.3) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-50.8"/></g><g transform="translate(2.3 -54.4) rotate(20.1) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-50.2"/></g><g transform="translate(-2.3 -61.6) rotate(-20) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-54.5"/></g><g transform="translate(2.3 -68.8) rotate(21) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-54.7"/></g><g transform="translate(-2.3 -76) rotate(-16.1) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.8"/></g><g transform="translate(2.3 -83.2) rotate(17.9) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-61.9"/></g><g transform="translate(0 -90.4)"><path class="grain" d="M0 0C-3.6 -3 -4 -9 0 -14C4 -9 3.6 -3 0 0Z"/><path class="awn" d="M0 -13V-56"/></g></g></g><g class="front"><path class="leaf" d="M356.3 900C346.5 515 264.6 186 150 350C266.4 186 352.5 515 363.8 900Z"/><path class="leaf" d="M391.8 900C391.4 592 385.2 328.8 375 360C386.8 328.8 396.6 592 398.3 900Z"/><path class="leaf" d="M436.5 900C444.7 482 506.7 124.8 590 330C508.3 124.8 450.3 482 443.5 900Z"/><path class="leaf" d="M467 900C464.6 691 442.3 512.4 410 550C443.7 512.4 469.4 691 473 900Z"/><path class="leaf" d="M516.8 900C517.9 570 523.7 288 530 315C525.3 288 523.1 570 523.3 900Z"/><path class="stem" d="M385 900Q381.9 542.5 359 185"/><g transform="translate(359 185) rotate(-3.7)"><rect class="spike" x="-8.1" y="-104" width="16.1" height="104" rx="8.1"/><path class="tip" d="M0 -108.3V-146.6"/></g><path class="stem" d="M418 900Q420.6 607.5 440 315"/><g transform="translate(440 315) rotate(3.8)"><rect class="spike" x="-6.7" y="-86" width="13.3" height="86" rx="6.7"/><path class="tip" d="M0 -89.5V-126.9"/></g><path class="stem" d="M340 900Q333 665 282 430"/><g transform="translate(282 430) rotate(-12.3)"><rect class="spike" x="-5.6" y="-72" width="11.2" height="72" rx="5.6"/><path class="tip" d="M0 -77.2V-109.1"/></g><path class="stem wheat-stem" d="M300 900Q295.2 564 252 340"/><g transform="translate(252 340) rotate(-20.9)"><path class="rachis" d="M0 0V-80"/><g transform="translate(-2.3 -4) rotate(-16.1) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.6"/></g><g transform="translate(2.3 -10.7) rotate(21.2) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.9"/></g><g transform="translate(-2.3 -17.3) rotate(-20.1) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-59.2"/></g><g transform="translate(2.3 -24) rotate(19.5) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.5"/></g><g transform="translate(-2.3 -30.7) rotate(-16.4) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-51.7"/></g><g transform="translate(2.3 -37.3) rotate(19.2) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.1"/></g><g transform="translate(-2.3 -44) rotate(-18.5) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.4"/></g><g transform="translate(2.3 -50.7) rotate(19) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.3"/></g><g transform="translate(-2.3 -57.3) rotate(-20.7) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.4"/></g><g transform="translate(2.3 -64) rotate(20) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-51.7"/></g><g transform="translate(-2.3 -70.7) rotate(-20.1) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-57.6"/></g><g transform="translate(2.3 -77.4) rotate(18.8) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-62.6"/></g><g transform="translate(0 -84)"><path class="grain" d="M0 0C-3.6 -3 -4 -9 0 -14C4 -9 3.6 -3 0 0Z"/><path class="awn" d="M0 -13V-56"/></g></g><path class="stem wheat-stem" d="M505 900Q508.4 600 539 400"/><g transform="translate(539 400) rotate(20.7)"><path class="rachis" d="M0 0V-92.3"/><g transform="translate(-2.3 -4) rotate(-20.3) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-57.2"/></g><g transform="translate(2.3 -11.7) rotate(21.7) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.8"/></g><g transform="translate(-2.3 -19.4) rotate(-16.3) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-46.2"/></g><g transform="translate(2.3 -27.1) rotate(19.2) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.6"/></g><g transform="translate(-2.3 -34.8) rotate(-18.1) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-54.7"/></g><g transform="translate(2.3 -42.5) rotate(17.7) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.3"/></g><g transform="translate(-2.3 -50.2) rotate(-19.3) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.4"/></g><g transform="translate(2.3 -57.9) rotate(18.3) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.6"/></g><g transform="translate(-2.3 -65.6) rotate(-17) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-62.1"/></g><g transform="translate(2.3 -73.2) rotate(19.9) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.5"/></g><g transform="translate(-2.3 -80.9) rotate(-20.6) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-46.1"/></g><g transform="translate(2.3 -88.6) rotate(18.5) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-47.8"/></g><g transform="translate(0 -96.3)"><path class="grain" d="M0 0C-3.6 -3 -4 -9 0 -14C4 -9 3.6 -3 0 0Z"/><path class="awn" d="M0 -13V-56"/></g></g></g></g><g class="note"><circle cx="263.7" cy="133.1" r="2.2"/><path d="M263.7 133.1H327.7"/><text x="333.7" y="130.1">gama</text><text class="sub" x="333.7" y="146.1">Typha latifolia</text></g><g class="note"><circle cx="132.7" cy="302.6" r="2.2"/><path d="M132.7 302.6V152.6"/><text x="132.7" y="132.6" text-anchor="middle">mugi</text><text class="sub" x="132.7" y="147.6" text-anchor="middle">Triticum</text></g></svg>
+    <div class="panel-inner">
+      <picture>
+        <source media="(max-width: 860px)" srcset="/assets/painting-band.svg">
+        <img class="scene" src="/assets/painting.svg" alt="" width="560" height="900">
+      </picture>
+    </div>
   </div>
 </div>
 </body>
