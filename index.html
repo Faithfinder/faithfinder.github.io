@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Projects · Dmitrii Kartashev</title>
+<meta name="description" content="Atlassian apps by Dmitrii Kartashev.">
+<link rel="canonical" href="https://projects.dkartashev.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dmitrii Kartashev, projects">
+<meta property="og:title" content="Projects by Dmitrii Kartashev">
+<meta property="og:description" content="Atlassian apps by Dmitrii Kartashev.">
+<meta property="og:url" content="https://projects.dkartashev.dev/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3EEE3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111A25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='4' fill='%23C2412B'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='600' fill='%23F3EEE3'%3EDK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap">
+<style>
+/* Light: kinari (unbleached washi), sumi ink, a vermilion seal.
+   Dark: yoru (night indigo), kinari text, wheat-gold links. */
+:root{
+  --bg:#F3EEE3; --ink:#24221F; --body:#4A453D; --muted:#6E6559; --line:#D8CEBC;
+  --accent:#A63D24; --seal:#C2412B; --seal-ink:#F3EEE3; --hover:rgba(36,34,31,.035);
+  --moon:#ECE5D6; --reed:#3B3934; --reed-back:#3B3934; --back-o:.28; --front-o:.78;
+  --kaba:#6E4126; --wheat:#B48A4E;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#111A25; --ink:#EEE6D4; --body:#C8BFAD; --muted:#8F8878; --line:#283444;
+    --accent:#D8B06B; --seal:#B8432B; --seal-ink:#111A25; --hover:rgba(238,230,212,.035);
+    --moon:#18222F; --reed:#5B6878; --reed-back:#3E4A5A; --back-o:.6; --front-o:.85;
+    --kaba:#8C5B37; --wheat:#C49A55;
+    color-scheme:dark;
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font:400 16.5px/1.7 var(--sans)}
+a{color:var(--accent);text-underline-offset:.22em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.page{position:relative;min-height:100vh;min-height:100svh;overflow:hidden}
+.wrap{
+  position:relative;z-index:1;max-width:620px;
+  margin-left:max(16px,9vw,env(safe-area-inset-left,0px));margin-right:max(16px,env(safe-area-inset-right,0px));
+  padding:clamp(48px,13vh,128px) 0 64px;
+}
+
+.seal{
+  display:inline-grid;place-items:center;width:38px;height:38px;margin-bottom:28px;
+  background:var(--seal);color:var(--seal-ink);border-radius:3px;transform:rotate(-2deg);
+  font:600 15px/1 var(--serif);letter-spacing:.04em;
+}
+.domain{margin:0 0 10px;font-size:13px;letter-spacing:.12em;color:var(--muted)}
+h1{margin:0;font:500 clamp(34px,5.4vw,54px)/1.15 var(--serif);color:var(--ink);letter-spacing:.01em}
+
+main{margin-top:clamp(44px,8vh,72px)}
+h2{margin:0 0 6px;font:500 12.5px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.item{
+  position:relative;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+  padding:24px 4px 26px;border-bottom:1px solid var(--line);transition:background-color .2s;
+}
+.item:hover{background:var(--hover)}
+.item:focus-within{outline:2px solid var(--accent);outline-offset:-2px}
+.kicker{margin:0 0 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h3{margin:0 0 6px;font:600 23px/1.3 var(--serif);color:var(--ink)}
+h3 a{color:inherit;text-decoration:none}
+h3 a:focus-visible{outline:none}
+h3 a::after{content:"";position:absolute;inset:0}
+.item:hover h3{color:var(--accent)}
+.desc{margin:0;max-width:34em}
+.arrow{font:400 22px/1 var(--serif);color:var(--muted);transition:transform .2s,color .2s}
+.item:hover .arrow{color:var(--accent);transform:translateX(4px)}
+
+footer{margin-top:40px;color:var(--muted);font-size:15px}
+footer p{margin:0 0 4px}
+
+/* The painting: cattails (gama) and bearded wheat (mugi) in front of a pale moon. */
+.scene{position:absolute;right:-12px;bottom:0;height:min(94vh,880px);width:auto;z-index:0}
+.scene .moon{fill:var(--moon)}
+.scene .back{opacity:var(--back-o)}
+.scene .front{opacity:var(--front-o)}
+.scene .leaf{fill:var(--reed)}
+.scene .back .leaf{fill:var(--reed-back)}
+.scene .stem{fill:none;stroke:var(--reed);stroke-width:2.4;stroke-linecap:round}
+.scene .wheat-stem,.scene .rachis{fill:none;stroke:var(--wheat);stroke-width:2;stroke-linecap:round}
+.scene .spike{fill:var(--kaba)}
+.scene .tip{stroke:var(--kaba);stroke-width:2;stroke-linecap:round}
+.scene .grain{fill:var(--wheat)}
+.scene .awn{stroke:var(--wheat);stroke-width:.9;stroke-linecap:round}
+
+@media (max-width:860px){
+  .wrap{max-width:none}
+  .page{padding-bottom:250px}
+  .scene{height:320px;right:-40px}
+}
+@media (max-width:520px){
+  .arrow{display:none}
+  .item{grid-template-columns:1fr}
+  h3{font-size:21px}
+}
+@media (prefers-reduced-motion: reduce){
+  .item,.arrow{transition:none}
+  .item:hover .arrow{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="wrap">
+    <header>
+      <div class="seal" aria-hidden="true">DK</div>
+      <p class="domain">projects.dkartashev.dev</p>
+      <h1>Projects by Dmitrii Kartashev</h1>
+    </header>
+    <main>
+      <h2>Atlassian apps</h2>
+      <ul class="list">
+        <li class="item">
+          <div>
+            <p class="kicker">Bitbucket Cloud</p>
+            <h3><a href="/repo-starter/">Repo Starter: Templates for Bitbucket</a></h3>
+            <p class="desc">Create Bitbucket Cloud repositories from templates, with files, branches and settings copied in one go.</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </li>
+        <li class="item">
+          <div>
+            <p class="kicker">Jira Cloud</p>
+            <h3><a href="/business-days/">Business Days &amp; Holidays for Jira</a></h3>
+            <p class="desc">Due dates that skip weekends, public holidays and your company’s days off.</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <p>Questions about the apps: <a href="mailto:support@dkartashev.dev">support@dkartashev.dev</a></p>
+      <p>Anything else: <a href="mailto:dmitrii@dkartashev.dev">dmitrii@dkartashev.dev</a></p>
+    </footer>
+  </div>
+  <svg class="scene" viewBox="0 0 560 900" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false"><circle class="moon" cx="215" cy="300" r="140"/><g transform="translate(-105 0)"><g class="back"><path class="leaf" d="M296.5 900C291.2 614 245.2 369.6 180 450C246.8 369.6 296.8 614 303.5 900Z"/><path class="leaf" d="M426.8 900C431.9 548 469.7 247.2 520 300C471.3 247.2 437.1 548 433.3 900Z"/><path class="leaf" d="M497 900C499.6 669 517.3 471.6 540 490C518.7 471.6 504.4 669 503 900Z"/><path class="stem" d="M470 900Q473.4 620 498 340"/><g transform="translate(498 340) rotate(5)"><rect class="spike" x="-6" y="-78" width="12.1" height="78" rx="6"/><path class="tip" d="M0 -81.1V-118.6"/></g><path class="stem wheat-stem" d="M250 900Q246.6 618 216 430"/><g transform="translate(216 430) rotate(-17.2)"><path class="rachis" d="M0 0V-86.4"/><g transform="translate(-2.3 -4) rotate(-16.4) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.7"/></g><g transform="translate(2.3 -11.2) rotate(18.9) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.8"/></g><g transform="translate(-2.3 -18.4) rotate(-17) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-49.7"/></g><g transform="translate(2.3 -25.6) rotate(19.3) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-48.5"/></g><g transform="translate(-2.3 -32.8) rotate(-16.5) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-57.8"/></g><g transform="translate(2.3 -40) rotate(18.9) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-59.3"/></g><g transform="translate(-2.3 -47.2) rotate(-21.3) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-50.8"/></g><g transform="translate(2.3 -54.4) rotate(20.1) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-50.2"/></g><g transform="translate(-2.3 -61.6) rotate(-20) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-54.5"/></g><g transform="translate(2.3 -68.8) rotate(21) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-54.7"/></g><g transform="translate(-2.3 -76) rotate(-16.1) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.8"/></g><g transform="translate(2.3 -83.2) rotate(17.9) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-61.9"/></g><g transform="translate(0 -90.4)"><path class="grain" d="M0 0C-3.6 -3 -4 -9 0 -14C4 -9 3.6 -3 0 0Z"/><path class="awn" d="M0 -13V-56"/></g></g></g><g class="front"><path class="leaf" d="M356.3 900C346.5 515 264.6 186 150 350C266.4 186 352.5 515 363.8 900Z"/><path class="leaf" d="M391.8 900C391.4 592 385.2 328.8 375 360C386.8 328.8 396.6 592 398.3 900Z"/><path class="leaf" d="M436.5 900C443.7 515 497.7 186 570 370C499.3 186 449.3 515 443.5 900Z"/><path class="leaf" d="M467 900C464.6 691 442.3 512.4 410 550C443.7 512.4 469.4 691 473 900Z"/><path class="leaf" d="M516.8 900C517.9 570 523.7 288 530 315C525.3 288 523.1 570 523.3 900Z"/><path class="stem" d="M385 900Q381.9 542.5 359 185"/><g transform="translate(359 185) rotate(-3.7)"><rect class="spike" x="-8.1" y="-104" width="16.1" height="104" rx="8.1"/><path class="tip" d="M0 -108.3V-146.6"/></g><path class="stem" d="M418 900Q420.6 607.5 440 315"/><g transform="translate(440 315) rotate(3.8)"><rect class="spike" x="-6.7" y="-86" width="13.3" height="86" rx="6.7"/><path class="tip" d="M0 -89.5V-126.9"/></g><path class="stem" d="M340 900Q333 665 282 430"/><g transform="translate(282 430) rotate(-12.3)"><rect class="spike" x="-5.6" y="-72" width="11.2" height="72" rx="5.6"/><path class="tip" d="M0 -77.2V-109.1"/></g><path class="stem wheat-stem" d="M300 900Q295.2 564 252 340"/><g transform="translate(252 340) rotate(-20.9)"><path class="rachis" d="M0 0V-80"/><g transform="translate(-2.3 -4) rotate(-16.1) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.6"/></g><g transform="translate(2.3 -10.7) rotate(21.2) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.9"/></g><g transform="translate(-2.3 -17.3) rotate(-20.1) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-59.2"/></g><g transform="translate(2.3 -24) rotate(19.5) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.5"/></g><g transform="translate(-2.3 -30.7) rotate(-16.4) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-51.7"/></g><g transform="translate(2.3 -37.3) rotate(19.2) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.1"/></g><g transform="translate(-2.3 -44) rotate(-18.5) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.4"/></g><g transform="translate(2.3 -50.7) rotate(19) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.3"/></g><g transform="translate(-2.3 -57.3) rotate(-20.7) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.4"/></g><g transform="translate(2.3 -64) rotate(20) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-51.7"/></g><g transform="translate(-2.3 -70.7) rotate(-20.1) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-57.6"/></g><g transform="translate(2.3 -77.4) rotate(18.8) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-62.6"/></g><g transform="translate(0 -84)"><path class="grain" d="M0 0C-3.6 -3 -4 -9 0 -14C4 -9 3.6 -3 0 0Z"/><path class="awn" d="M0 -13V-56"/></g></g><path class="stem wheat-stem" d="M505 900Q508.4 600 539 400"/><g transform="translate(539 400) rotate(20.7)"><path class="rachis" d="M0 0V-92.3"/><g transform="translate(-2.3 -4) rotate(-20.3) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-57.2"/></g><g transform="translate(2.3 -11.7) rotate(21.7) scale(1)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.8"/></g><g transform="translate(-2.3 -19.4) rotate(-16.3) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-46.2"/></g><g transform="translate(2.3 -27.1) rotate(19.2) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-60.6"/></g><g transform="translate(-2.3 -34.8) rotate(-18.1) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-54.7"/></g><g transform="translate(2.3 -42.5) rotate(17.7) scale(0.9)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-53.3"/></g><g transform="translate(-2.3 -50.2) rotate(-19.3) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-55.4"/></g><g transform="translate(2.3 -57.9) rotate(18.3) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.6"/></g><g transform="translate(-2.3 -65.6) rotate(-17) scale(0.8)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-62.1"/></g><g transform="translate(2.3 -73.2) rotate(19.9) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-58.5"/></g><g transform="translate(-2.3 -80.9) rotate(-20.6) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-46.1"/></g><g transform="translate(2.3 -88.6) rotate(18.5) scale(0.7)"><path class="grain" d="M0 0C-4.2 -3.4 -4.6 -10 0 -16C4.6 -10 4.2 -3.4 0 0Z"/><path class="awn" d="M0 -15V-47.8"/></g><g transform="translate(0 -96.3)"><path class="grain" d="M0 0C-3.6 -3 -4 -9 0 -14C4 -9 3.6 -3 0 0Z"/><path class="awn" d="M0 -13V-56"/></g></g></g></g></svg>
+</div>
+</body>
+</html>
